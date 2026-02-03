@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { formatTimeSinceLastBreak } from "./utils";
+import { BlinkingCoffee } from "./blinking-coffee";
 
 const MAX_GRACE_PERIOD_MS = 60000;
 
@@ -35,12 +36,12 @@ export function BreakNotification({
 }: BreakNotificationProps) {
   const [phase, setPhase] = useState<"grace" | "countdown">("grace");
   const [msRemaining, setMsRemaining] = useState<number>(0);
+  const [startTime] = useState<moment.Moment>(moment());
 
   const totalCountdownMs = automaticallyStartBreaksDelaySeconds * 1000;
   const gracePeriodMs = Math.min(MAX_GRACE_PERIOD_MS, totalCountdownMs);
 
   useEffect(() => {
-    const startTime = moment();
     let timeoutId: NodeJS.Timeout;
 
     const tick = () => {
@@ -103,9 +104,10 @@ export function BreakNotification({
       <div className="flex justify-between items-center px-6 py-2 h-full">
         <div className="flex flex-col justify-center">
           <h2
-            className="text-lg font-semibold tracking-tight"
+            className="text-lg font-semibold tracking-tight flex items-center gap-2"
             style={{ color: textColor }}
           >
+            <BlinkingCoffee startTime={startTime} />
             {phase === "grace"
               ? "Start your break when ready..."
               : `Break starting in ${secondsRemaining}s...`}
