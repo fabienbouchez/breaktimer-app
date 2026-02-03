@@ -49,6 +49,12 @@ To package apps for the local platform:
 npm run package
 ```
 
+To package only the .deb file for Linux:
+
+```bash
+npm run package-deb
+```
+
 :bulb: When packaging for MacOS make sure to set your signing/notirization env variables per [the electron-builder docs](https://www.electron.build/mac#notarize). You can obtain an API key from [App Store Connect](https://appstoreconnect.apple.com/access/integrations/api).
 Create a **Team Key** (not an _Individual Key_) with **App Manager** access.:
 
