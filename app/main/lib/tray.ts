@@ -132,11 +132,11 @@ export function buildTray(): void {
     });
   };
 
-  const quit = (): void => {
-    setTimeout(() => {
-      app.exit(0);
-    });
-  };
+  // const quit = (): void => {
+  //   setTimeout(() => {
+  //     app.exit(0);
+  //   });
+  // };
 
   const breakTime = getBreakTime();
   const inWorkingHours = checkInWorkingHours();
@@ -226,7 +226,7 @@ export function buildTray(): void {
     { type: "separator" },
     { label: "Settings...", click: createSettingsWindow },
     { label: "About...", click: createAboutWindow },
-    { label: "Quit", click: quit },
+    // { label: "Quit", click: quit },
   ]);
 
   // Call this again for Linux because we modified the context menu

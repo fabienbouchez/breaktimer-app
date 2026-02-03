@@ -56,6 +56,7 @@ export function BlinkingCoffee({ startTime }: BlinkingCoffeeProps) {
     <span
       style={{
         marginLeft: "0.5rem",
+        fontSize: "1.7rem",
         transform: isPulsing ? "scale(1.25)" : "scale(1)",
         opacity: isPulsing ? 0.3 : 1,
         transition: "transform 0.3s cubic-bezier(0.36, 0, 0.66, -0.56), opacity 0.3s",
