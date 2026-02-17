@@ -116,7 +116,7 @@ export function createBreakWindows(): void {
       autoHideMenuBar: true,
       frame: false,
       x: display.bounds.x + display.bounds.width / 2 - notificationWidth / 2,
-      y: display.bounds.y + 50,
+      y: display.bounds.y + 200,
       width: notificationWidth,
       height: notificationHeight,
       resizable: false,
